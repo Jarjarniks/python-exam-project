@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container">
+        <h1 class="text-center">Below you can add a new race that characters can be!</h1>
+        <form class="flex-col" action="#" method="post">
+            <label for="race">Race:</label>
+            <input type="text" name="race" id="race" required>
+            <label for="race-str">Strength Modifier:</label>
+            <input type="number" name="race-str" id="race-str" value="0" min="-2" max="2">
+            <label for="race-dex">Dexterity Modifier:</label>
+            <input type="number" name="race-dex" id="race-dex" value="0" min="-2" max="2">
+            <label for="race-con">Constitution Modifier:</label>
+            <input type="number" name="race-con" id="race-con" value="0" min="-2" max="2">
+            <input type="submit" value="Create Race">
+        </form>
+    </main>
+{% endblock %}

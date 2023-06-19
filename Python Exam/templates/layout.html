@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>{{title}}</title>
+    {% else %}
+        <title>Default Title</title>
+    {% endif %}
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="flex layout-nav">
+        <a class="" href="/home">Home</a>
+        <div class="flex">
+            <a class="" href="/player-characters">Player Characters</a>
+            <a class="" href="/create-player-character">Create Character</a>
+            <a class="" href="/players">Players</a>
+            <a class="" href="/races">Races</a>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <footer class="layout-nav">
+        <div class="text-center">
+            <p>Python Exam Project</p>
+            <p>Nikolai Lønberg</p>
+        </div>
+    </footer>
+</body>
+</html>

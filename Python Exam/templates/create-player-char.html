@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container"> <!-- add character image on the left of the form? -->
+        <h1 class="text-center">Below you can create your very own DnD character!</h1>
+        <form class="flex-col" action="#" method="post">
+            <label class="stat-header" for="player-name">Choose player</label>
+            <select name="player-name" id="player-name">
+                {% for p in players %}
+                    <option value="{{p.playerName}}">{{p.playerName}}</option>
+                {% endfor %}
+            </select>
+            <label class="stat-header" for="pchar-name">Character name:</label>
+            <input type="text" name="pchar-name" id="pchar-name" required>
+            <label class="stat-header" for="pchar-race">Choose race:</label>
+            <select name="pchar-race" id="pchar-race">
+                {% for race in races %}
+                    <option value="{{race.raceName}}">{{race.raceName}}</option>
+                {% endfor %}
+            </select>
+            <span class="stat-header">Character Attributes</span>
+            <span>You get three rolls per stat, so choose wisely!</span>
+            <div class="flex-stats">
+                <label for="pchar-str">Roll for strength!</label>
+                <button type="button">Roll</button>
+                <input class="stat-input" type="number" name="pchar-str" id="stat1" readonly>
+                <label for="pchar-dex">Roll for dexterity!</label>
+                <button type="button">Roll</button>
+                <input class="stat-input" type="number" name="pchar-dex" id="stat2" readonly>
+                <label for="pchar-con">Roll for constitution!</label>
+                <button type="button">Roll</button>
+                <input class="stat-input" type="number" name="pchar-con" id="stat3" readonly>
+            </div>
+            <label for="pchar-desc">Add a backstory here, totally optional. Make shit up!</label>
+            <textarea name="pchar-desc" id="pchar-desc" rows="4" cols="60" placeholder="A new adventurer enters the fray..."></textarea>
+            <input type="submit" value="Finalize Creation">
+        </form>
+    </main>
+    <script>
+        const buttons = document.querySelectorAll('button')
+
+        buttons.forEach((button, index) => {
+            let count = 0
+            button.addEventListener('click', function rollD6() {
+                let result = 0
+                if (count < 3) {
+                    for (let i = 0; i < 3; i++) {
+                        val = Math.random() * 6
+                        roll = Math.ceil(val)
+                        result += roll
+                    }
+                    const input = document.querySelector(`#stat${index+1}`)
+                    input.value = result
+                }
+                count++
+            })
+        })
+    </script>
+{% endblock %}

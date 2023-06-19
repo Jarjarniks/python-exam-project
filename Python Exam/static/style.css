@@ -1,0 +1,209 @@
+body{
+    background-color: #fff9e0;    
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-size: 1.4rem;
+    height: 150vh;
+    color: rgb(210, 98, 70);
+    margin: 0;
+    letter-spacing: 0.1rem;
+}
+
+.h1-p-text{
+    font-size: 1.6rem;
+}
+
+a{
+    text-decoration: none;
+    font-weight:900;
+    font-size: 1.5rem;
+}
+  
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.layout-nav {
+    justify-content: space-between;
+    background-color: rgb(185, 51, 44);
+    padding: 1rem;
+}
+
+.layout-nav a {
+    color: #fff9e0;
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+}
+
+.layout-nav a:hover{
+    background-color: brown;
+    border-radius: 10px;
+}
+
+table {
+    border: 4px solid rgb(36, 13, 1);
+    border-collapse: collapse;
+}
+
+th{
+    border: 2px solid black;
+    font-style: italic;
+    padding: 1rem;
+}
+
+td{
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+a {
+    color: #b8991f;
+    text-decoration:underline;
+    text-align: center;
+    padding: 0.35rem 1rem;
+    border-radius: 10px;
+}
+
+a:hover{
+    color: white;
+    background-color: rgb(133, 59, 19);
+}
+
+tr:nth-child(even){
+    background-color: #f1e9cc;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-center p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff9e0;
+}
+
+.gap-2 {
+    gap: 2rem
+}
+
+.player-div{
+    flex-shrink: 0;
+}
+
+.add-player{
+    background-color: rgb(185, 51, 44);
+    color: #fff9e0;
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.play-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.play-form > * {
+    font-size: 1.4rem;
+}
+
+.add-race {
+    background-color: rgb(185, 51, 44);
+    color: #fff9e0;
+    padding: 0.25rem 1rem;
+    border-radius: 10px;
+}
+
+.add-race:hover{
+    background-color: rgb(154, 43, 37);
+    color: #fefbef;
+}
+
+.delete-race{
+    margin-top: 3rem;
+    background-color: rgb(171, 50, 44);
+    color: #fefbef;
+    font-size: 1.8rem;
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+input, select{
+    font-size: 1.4rem;
+}
+
+input[type="submit"]{
+    cursor: pointer;
+    background-color: rgb(139, 44, 40);
+    color: #f8e38e;
+}
+
+input[type="submit"]:hover{
+    color: white;
+}
+
+.flex-player{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-border{
+    border-bottom: 2px solid red;
+}
+
+textarea{
+    font-size: 1.6rem;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.flex-stats{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.marg-top{
+    margin-top: 1.2rem;
+}
+
+.stat-input{
+    width: 40px;
+}
+
+.del-char {
+    margin-top: 8rem;
+}
+
+.stat-header{
+    font-size: 2rem;
+}

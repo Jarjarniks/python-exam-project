@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container flex-col">
+        <h1>Here are all the races characters can be!</h1>
+        <p class="h1-p-text">The stat columns show what value they will modify that stat by, if that race is chosen.</p>
+        <table>
+            <thead>
+                <th>rID</th>
+                <th>Race</th>
+                <th>Strength</th>
+                <th>Dexterity</th>
+                <th>Constitution</th>
+            </thead>
+            <tbody>
+                {% for r in races %}
+                    <tr>
+                        <td>{{r.rID}}</td>
+                        <td>{{r.raceName}}</td>
+                        <td>{{r.strength}}</td>
+                        <td>{{r.dexterity}}</td>
+                        <td>{{r.constitution}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/races/create" class="add-race">Add Race</a>
+        <div class="">
+            <form class="delete-race" action="{{url_for('delete_race')}}" method="post" onsubmit="return confirm('Confirm deletion?')">
+                <label for="rID">Delete race:</label>
+                <input type="number" name="rID" placeholder="Enter rID number">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </main>
+{% endblock %}

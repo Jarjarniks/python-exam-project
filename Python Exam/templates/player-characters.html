@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container">
+        <div class="flex-col">
+            <h1>Have a look at all the characters in our database!</h1>
+            <table>
+                <thead>
+                    <th>pcID</th>
+                    <th>Name</th>
+                    <th>Race</th>
+                    <th>Strength</th>
+                    <th>Dexterity</th>
+                    <th>Constitution</th>
+                    <th>Player</th>
+                    <th>About page</th>
+                </thead>
+                <tbody>
+                    {% for c in chars %}
+                        <tr>
+                            <td>{{c.pcID}}</td>
+                            <td>{{c.characterName}}</td>
+                            <td>{{c.raceName}}</td>
+                            <td>{{c.strength}}</td>
+                            <td>{{c.dexterity}}</td>
+                            <td>{{c.constitution}}</td>
+                            <td>
+                                {% for p in players %}
+                                    {% if p.pID == c.pID %}
+                                        {{p.playerName}}
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td><a href="/player-characters/{{c.pcID}}">Entry</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}

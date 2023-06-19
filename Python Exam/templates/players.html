@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container flex gap-2">
+        <div class="player-div">
+            <h1>Heres a list of our players!</h1>
+            <table>
+                <thead>
+                    <th>pID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>About page</th>
+                </thead>
+                <tbody>
+                    {% for p in players %}
+                        <tr>
+                            <td>{{p.pID}}</td>
+                            <td>{{p.playerName}}</td>
+                            <td>{{p.email}}</td>
+                            <td><a href="/players/{{p.pID}}">Go to entry</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="add-player">
+            <h2>Add new player</h2>
+            <form action="#" method="post" class="play-form">
+                <label for="player-name">Name:</label>
+                <input type="text" name="player-name" id="player-name" required>
+                <label for="player-email">Email:</label>
+                <input name="player-email" id="player-email" type="email" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+{% endblock %}

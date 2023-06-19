@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container">
+        <div class="flex-player">
+            <section>
+                <h1>Database pID: {{player.pID}}</h1>
+                <h2>Name: {{player.playerName}}</h2>
+                <h2>Email: {{player.email}}</h2>
+            </section>
+            <section class="flex-col">
+                <h3>Need to change name or email? We got you covered!</h3>
+                <form action="#" method="post">
+                    <label for="player-name">Name:</label>
+                    <input type="text" name="player-name" id="player-name" value="{{player.playerName}}">
+                    <label for="player-email">Email:</label>
+                    <input name="player-email" id="player-email" type="email" value="{{player.email}}">
+                    <input type="submit" value="Submit">
+                </form>
+                <form action="{{url_for('delete_player', pID=player.pID)}}" method="post" onsubmit="return confirm('Confirm deletion?')">
+                    <input type="hidden" name="pID" value="{{player.pID}}">
+                    <input type="submit" value="Delete Player">
+                </form>
+            </section>
+        </div>
+            <h3>Characters</h3>
+            {% for c in chars %}
+            <article class="bottom-border">
+                <h4>{{c.characterName}}</h4>
+                <h5>The {{c.raceName}}</h5>
+                <p>{{c.description}}</p>
+                <a href="{{url_for('player_chars_by_pcID', pcID=c.pcID)}}">View character</a>
+            </article>
+            {% endfor %}
+    </main>
+{% endblock %}
+

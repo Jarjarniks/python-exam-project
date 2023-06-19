@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container flex-col"> <!-- add character image on the left of the form? -->
+        <h1 class="text-center">Need to change something? Have no fear!</h1>
+        <form class="flex-col" action="#" method="post" onsubmit="return confirm('submit changes?')">
+            <label class="stat-header" for="player-name">Choose player:</label>
+            <select name="player-name" id="player-name">
+                {% for p in players %}
+                    {% if p.pID == char.pID %}
+                        <option value="{{p.playerName}}" selected>{{p.playerName}}</option>
+                    {% else %}
+                        <option value="{{p.playerName}}">{{p.playerName}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <label class="stat-header" for="pchar-name">Character name:</label>
+            <input type="text" name="pchar-name" id="pchar-name" value="{{char.characterName}}">
+            <label for="pchar-desc">Edit description below</label>
+            <textarea name="pchar-desc" id="pchar-desc" rows="6" cols="60">{{char.description}}</textarea>
+            <input type="submit" value="Update Character">
+        </form>
+        <form class="del-char" action="{{url_for('delete_pChar', pcID=char.pcID)}}" method="post" onsubmit="return confirm('are you sure?')">
+            <input type="hidden" name="pcID" value="{{char.pcID}}">
+            <input type="submit" value="Delete Character">
+        </form>
+    </main>
+{% endblock %}

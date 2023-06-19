@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container">
+        <h1>Database pcID: {{char.pcID}}</h1>
+        <h2>Name: {{char.characterName}}</h2>
+        <h2>Race: {{char.raceName}}</h2>
+        <table class="center">
+            <caption>Stats</caption>
+            <thead>
+                <th>Strength</th>
+                <th>Dexterity</th>
+                <th>Constitution</th>
+            </thead>
+            <tbody>
+                <td>{{char.strength}}</td>
+                <td>{{char.dexterity}}</td>
+                <td>{{char.constitution}}</td>
+            </tbody>
+        </table>
+        {% if char.description %}
+            <h3>Backstory</h3>
+            <p>{{char.description}}</p>
+        {% endif %}
+        <a href="/player-characters/{{char.pcID}}/edit">Edit</a>
+        <a href="/player-characters/{{char.pcID}}/export">Export</a>
+    </main>
+{% endblock %}
